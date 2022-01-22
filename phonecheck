@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "$1" > tempFile
+if egrep -q ["1 ("][0-9]{3}[')'][' '][0-9][0-9][0-9][' '][0-9][0-9][0-9] "tempFile" ; then
+  echo "valid"
+elif egrep -q ['('][0-9][0-9][0-9][')'][' '][0-9][0-9][0-9][' '][0-9][0-9][0-9] "tempFile" ; then
+  echo "valid"
+else
+  echo "invalid"
+fi
+rm tempFile

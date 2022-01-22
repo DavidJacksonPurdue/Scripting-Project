@@ -1,0 +1,9 @@
+#!/bin/bash
+
+for file in *; do
+  limit=$1
+  size=$(stat -c %s "$file")
+  if [ $size -gt "$limit" ]; then
+    echo "$file"
+  fi
+done

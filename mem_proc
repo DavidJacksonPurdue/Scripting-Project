@@ -1,0 +1,8 @@
+#!/bin/bash
+
+while [ -n "$(ls /proc/$PID)" ]
+do
+  mem=$( awk '/VmRSS:/ {print $2}' "/proc/$1/status" )
+  echo "$mem"
+  sleep 5
+done
